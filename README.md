@@ -1,4 +1,4 @@
-# SketchVision
+# ECHOO
 
 A sketch based image search web application.
 
