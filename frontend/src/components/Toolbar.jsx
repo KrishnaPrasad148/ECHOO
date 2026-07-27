@@ -4,7 +4,8 @@ function Toolbar({
     brushColor,
     setBrushColor,
     clearCanvas,
-    saveCanvas
+    saveCanvas,
+    searchSketch
 })
 {
     return(
@@ -31,6 +32,10 @@ function Toolbar({
 
             <button onClick={saveCanvas}>
                 Save Sketch
+            </button>
+
+            <button onClick={searchSketch}>
+                Search
             </button>
         </div>
     );

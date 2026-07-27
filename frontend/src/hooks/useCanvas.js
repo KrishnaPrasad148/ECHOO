@@ -87,13 +87,41 @@ function useCanvas(brushSize, brushColor){
         link.download = "sketch.png";
         link.click();
     }
+
+    async function searchSketch() {
+        const canvas = canvasRef.current;
+        canvas.toBlob(async (blob) => {
+            const formData = new FormData();
+            formData.append(
+                "image",
+                blob,
+                "sketch.png"
+            );
+            try {
+                const response = await fetch(
+                    "http://127.0.0.1:8000/search",
+                    {
+                        method: "POST",
+                        body: formData
+                    }
+                );
+                const data = await response.json();
+                console.log(data);
+            } 
+            catch (error) {
+                console.error(error);
+            }
+        }, "image/png");
+    }
+
     return {
         canvasRef,
         startDrawing,
         stopDrawing,
         draw,
         clearCanvas,
-        saveCanvas
+        saveCanvas,
+        searchSketch
     }
 }
 

@@ -14,7 +14,8 @@ function App() {
         stopDrawing,
         draw,
         clearCanvas,
-        saveCanvas
+        saveCanvas,
+        searchSketch
     } = useCanvas(brushSize, brushColor);
 
     return (
@@ -28,6 +29,7 @@ function App() {
             setBrushColor={setBrushColor}
             clearCanvas={clearCanvas}
             saveCanvas={saveCanvas}
+            searchSketch={searchSketch}
         />
         <Canvas
             canvasRef={canvasRef}
